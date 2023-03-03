@@ -20,5 +20,6 @@ from Proyecto1 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', views.saludo),
-    path('despedida/', views.goodbye)
+    path('despedida/', views.goodbye),
+    path('date/', views.show_date)
 ]
