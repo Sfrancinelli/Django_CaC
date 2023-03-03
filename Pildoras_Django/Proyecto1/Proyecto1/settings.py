@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Proyecto1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/Users/Esteban/Desktop/SF/CaC_Django/Pildoras_Django/Proyecto1/Proyecto1/html"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

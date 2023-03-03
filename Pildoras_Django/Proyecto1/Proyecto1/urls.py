@@ -19,7 +19,7 @@ from Proyecto1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludo/', views.saludo),
+    path('index/', views.saludo),
     path('despedida/', views.goodbye),
     path('date/', views.show_date),
     # This is how you add parameters to de url, using <> and a slash(/) to add another one.

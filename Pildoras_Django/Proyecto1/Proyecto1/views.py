@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template import loader
 
 class Persona(object):
     
@@ -19,19 +20,25 @@ def saludo(request):
 
     date_now = datetime.datetime.now().strftime("%d/%m/%Y")
 
-    doc_externo = open("C:/Users/Esteban/Desktop/SF/CaC_Django/Pildoras_Django/Proyecto1/Proyecto1/html/index.html")
+    # doc_externo = open("C:/Users/Esteban/Desktop/SF/CaC_Django/Pildoras_Django/Proyecto1/Proyecto1/html/index.html")
 
-    template = Template(doc_externo.read())
+    # template = Template(doc_externo.read())
 
-    doc_externo.close()
+    # doc_externo.close()
 
     # context = Context({"name" : name, "last_name" : last_name, "date_now" : date_now})
 
+    # context = Context({"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now, "subjects" : subjects})
+
+    # This is how you do it properly. Charging the DIR list from settings.py and loading the template with the get_template method from the loader class.
+
+    doc_externo = loader.get_template('index.html')
+
     subjects = ["Templates", "Models", "Views", "Deployment"]
 
-    context = Context({"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now, "subjects" : subjects})
+    context = {"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now, "subjects" : subjects}
 
-    documento = template.render(context)
+    documento = doc_externo.render(context)
 
     return HttpResponse(documento)
 

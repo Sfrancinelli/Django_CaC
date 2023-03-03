@@ -10,10 +10,35 @@
             font-style: italic;
             color: rgb(123, 199, 36);
         }
+
+        p {
+            font-style: italic;
+        }
+
+        ul {
+            list-style: disc;
+        }
     </style>
 </head>
 <body>
     <h1>First template with Django!</h1>
+
+    {# This is a comment #}
+
+    {% comment %}
+        This is a multiline comment!
+    {% endcomment %}
+
+        {% if name == 'Sebastian' %}
+
+            <p>The course is managed by the main teacher</p>
+
+        {% else %}
+
+            <p>The course is managed by the substitute teacher</p>
+
+        {% endif %}
+
     <p>The professor's name is {{name}}</p>
     <p>His last name is {{last_name.upper}}</p>
     <p>I'm watching this course on {{date_now}}</p>
@@ -22,6 +47,10 @@
     <!-- <p>{{subjects.1}}</p> -->
     <p>
         <ul>   
+            {% comment %}
+                https://docs.djangoproject.com/en/4.1/ref/templates/builtins/ Documentacion sobre condicionales, bucles, filtros, etc!
+            {% endcomment %}
+
             {% if subjects %}     
                 {% for subject in subjects %}
 
@@ -29,7 +58,9 @@
 
                 {% endfor %}   
             {% else %}
+
                 <p>There's no course subjects at this moment!</p>
+
             {% endif %}
         </ul>
 
