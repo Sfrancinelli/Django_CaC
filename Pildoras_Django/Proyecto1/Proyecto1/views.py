@@ -5,13 +5,19 @@ from django.template import Template, Context
 # Every function created in the views file it's a view for our web.
 def saludo(request):
 
+    name = "Juan"
+
+    last_name = "Diaz"
+
+    date_now = datetime.datetime.now().strftime("%d/%m/%Y")
+
     doc_externo = open("C:/Users/Esteban/Desktop/SF/CaC_Django/Pildoras_Django/Proyecto1/Proyecto1/html/index.html")
 
     template = Template(doc_externo.read())
 
     doc_externo.close()
 
-    context = Context()
+    context = Context({"name" : name, "last_name" : last_name, "date_now" : date_now})
 
     documento = template.render(context)
 
