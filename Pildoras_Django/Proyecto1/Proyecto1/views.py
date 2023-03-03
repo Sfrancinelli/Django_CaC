@@ -2,12 +2,20 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 
+class Persona(object):
+    
+    def __init__(self, name, last_name):
+        self.name = name
+        self.last_name = last_name
+
 # Every function created in the views file it's a view for our web.
 def saludo(request):
 
-    name = "Juan"
+    p1 = Persona("Sebastian", "Francinelli")
 
-    last_name = "Diaz"
+    # name = "Juan"
+
+    # last_name = "Diaz"
 
     date_now = datetime.datetime.now().strftime("%d/%m/%Y")
 
@@ -17,7 +25,9 @@ def saludo(request):
 
     doc_externo.close()
 
-    context = Context({"name" : name, "last_name" : last_name, "date_now" : date_now})
+    # context = Context({"name" : name, "last_name" : last_name, "date_now" : date_now})
+
+    context = Context({"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now})
 
     documento = template.render(context)
 
