@@ -1,17 +1,19 @@
 from django.http import HttpResponse
 import datetime
+from django.template import Template, Context
 
 # Every function created in the views file it's a view for our web.
 def saludo(request):
 
-    documento = """
-    <html>
-        <body>
-            <h1>
-                Hola Mundo!
-            </h1>
-        </body>
-    </html>"""
+    doc_externo = open("C:/Users/Esteban/Desktop/SF/CaC_Django/Pildoras_Django/Proyecto1/Proyecto1/html/index.html")
+
+    template = Template(doc_externo.read())
+
+    doc_externo.close()
+
+    context = Context()
+
+    documento = template.render(context)
 
     return HttpResponse(documento)
 
@@ -64,7 +66,7 @@ def age_calculator(request, year, age):
 
 
     # This couyld be done with positional arguments
-    
+
     document = """
     <html>
         <body>
