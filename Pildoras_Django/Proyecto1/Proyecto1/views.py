@@ -27,7 +27,9 @@ def saludo(request):
 
     # context = Context({"name" : name, "last_name" : last_name, "date_now" : date_now})
 
-    context = Context({"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now})
+    subjects = ["Templates", "Models", "Views", "Deployment"]
+
+    context = Context({"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now, "subjects" : subjects})
 
     documento = template.render(context)
 

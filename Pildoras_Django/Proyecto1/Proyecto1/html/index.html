@@ -15,7 +15,25 @@
 <body>
     <h1>First template with Django!</h1>
     <p>The professor's name is {{name}}</p>
-    <p>His last name is {{last_name}}</p>
+    <p>His last name is {{last_name.upper}}</p>
     <p>I'm watching this course on {{date_now}}</p>
+    <!-- To select the index on a list with django templates we use the dot nomenclature -->
+    <p><strong>Course subjects:</strong></p>
+    <!-- <p>{{subjects.1}}</p> -->
+    <p>
+        <ul>   
+            {% if subjects %}     
+                {% for subject in subjects %}
+
+                    <li>{{subject}}</li>
+
+                {% endfor %}   
+            {% else %}
+                <p>There's no course subjects at this moment!</p>
+            {% endif %}
+        </ul>
+
+    </p>
+
 </body>
 </html>
