@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 from django.template import loader
+from django.shortcuts import render
 
 class Persona(object):
     
@@ -32,19 +33,25 @@ def saludo(request):
 
     # This is how you do it properly. Charging the DIR list from settings.py and loading the template with the get_template method from the loader class.
 
-    doc_externo = loader.get_template('index.html')
+    # doc_externo = loader.get_template('index.html')
 
     subjects = ["Templates", "Models", "Views", "Deployment"]
 
-    context = {"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now, "subjects" : subjects}
+    # context = {"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now, "subjects" : subjects}
 
-    documento = doc_externo.render(context)
+    # documento = doc_externo.render(context)
 
-    return HttpResponse(documento)
+    # return HttpResponse(documento)
 
+    # Now we'll use the shortcuts module to simplify even more the code:
+
+    return render(request, "index.html", {"name" : p1.name, "last_name" : p1.last_name, "date_now" : date_now, "subjects" : subjects})
+
+    
 def goodbye(request):
 
     return HttpResponse("Goodbye!")
+
 
 def show_date(request):
 
@@ -71,6 +78,7 @@ def show_date(request):
     # Any of this posibilities will work fine.
 
     return HttpResponse(documento)
+
 
 def age_calculator(request, year, age):
 
