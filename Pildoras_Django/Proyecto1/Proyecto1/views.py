@@ -117,3 +117,7 @@ def children_template(request):
     date_now = datetime.datetime.now().strftime("%d/%m/%Y")
 
     return render(request, 'children.html', {"date_now" : date_now})
+
+def children2(request):
+
+    return render(request, 'children2.html')

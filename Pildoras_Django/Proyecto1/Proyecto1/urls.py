@@ -24,5 +24,7 @@ urlpatterns = [
     path('date/', views.show_date),
     # This is how you add parameters to de url, using <> and a slash(/) to add another one.
     path('age_calculator/<int:year>/<int:age>', views.age_calculator),
-    path('children/', views.children_template)
+    path('children/', views.children_template),
+    path('children2/', views.children2)
+
 ]
