@@ -9,12 +9,25 @@
 
         {% endblock %}
     </title>
+    <style>
+        .h1-padre {
+            text-align: center;
+            color: aliceblue;
+            background-color: rgb(148, 212, 36);
+        }
+
+        .p-padre {
+            text-align: center;
+            color: aliceblue;
+            background-color: rgb(255, 238, 6);
+        }
+    </style>
 </head>
 <body>
     
     {% include "top_navbar/navbar.html" %}
 
-    <h1>Título de la página</h1>
+    <h1 class="h1-padre">Título de la página</h1>
 
     <h2>Estos titulos van a ser comunes a todas las páginas!</h2>
 
@@ -26,7 +39,7 @@
 
     {% endblock %}
 
-    <p>Otro párrafo que estaría presente en todas las demas páginas</p>
+    <p class="p-padre">Otro párrafo que estaría presente en todas las demas páginas</p>
 
     {% include "footer/footer.html" %}
 
