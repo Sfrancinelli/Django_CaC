@@ -112,5 +112,8 @@ def age_calculator(request, year, age):
     return HttpResponse(document)
 
     
+def children_template(request):
 
-    
+    date_now = datetime.datetime.now().strftime("%d/%m/%Y")
+
+    return render(request, 'children.html', {"date_now" : date_now})
