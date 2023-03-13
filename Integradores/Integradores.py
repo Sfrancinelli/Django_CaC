@@ -130,6 +130,41 @@ def mcd(num1, num2):
 
     return f"El máximo común divisor entre {numero1} y {numero2} es: {mcd}"
 
-print(mcd(60, 96))
+# print(mcd(60, 96))
 
+# Escribir una función que calcule el mínimo común múltiplo entre dos números
 
+def mcm(num1, num2):
+
+    factores_primos_num1 = []
+    factores_primos_num2 = []
+
+    numero1 = num1
+    numero2 = num2
+
+    factores_primos = num1 % 2
+    while factores_primos == 0:
+        factores_primos_num1.append(2)
+        num1 = num1 / 2
+        factores_primos = num1 % 2
+
+        if factores_primos != 0:
+            factores_primos = num1 % 3
+            while factores_primos == 0:
+                factores_primos_num1.append(3)
+                num1 = num1 / 3
+                factores_primos = num1 % 3
+
+        elif factores_primos != 0:
+            factores_primos = num1 % 5
+            while factores_primos == 0:
+                factores_primos_num1.append(5)
+                num1 = num1 / 5
+                factores_primos = num1 % 5
+
+        elif factores_primos != 0:
+            factores_primos = num1 % 7
+            while factores_primos == 0:
+                factores_primos_num1.append(7)
+                num1 = num1 / 7
+                factores_primos = num1 % 7
