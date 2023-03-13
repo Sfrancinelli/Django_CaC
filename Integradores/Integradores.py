@@ -116,7 +116,14 @@ def mcd(num1, num2):
 
     print(factor_7)
 
-    mcd = (factor_2 * 2) * (factor_3 * 3) * (factor_5 * 5) * (factor_7 * 7)
+    if factor_2 != 0:
+        mcd = factor_2 * 2
+    elif factor_3 != 0:
+        mcd = mcd * (factor_3 * 3)
+    elif factor_5 != 0:
+        mcd = mcd * (factor_5 * 5)
+    elif factor_7 != 0:
+        mcd = mcd * (factor_7 * 7) 
 
     return f"El máximo común divisor entre {numero1} y {numero2} es: {mcd}"
 
