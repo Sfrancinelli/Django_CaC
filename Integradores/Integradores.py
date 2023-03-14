@@ -269,9 +269,10 @@ def mcm(a, b):
     def mcd(x, y):
         while y != 0:
             print(x, y)
-            x, y = y, x % y       
+            x, y = y, x % y 
+        print(x)      
         return x
     
     return (a * b) // mcd(a, b)
 
-mcm(15, 18)
+print(mcm(15, 18))
