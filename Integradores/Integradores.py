@@ -276,3 +276,61 @@ def mcm(a, b):
     return (a * b) // mcd(a, b)
 
 print(mcm(15, 18))
+
+# Ejercicio 3:
+
+def contar_palabras(cadena):
+
+    palabras = cadena.lower().split()
+    
+    frecuencias = {}
+    
+    for palabra in palabras:
+        if palabra in frecuencias:
+            frecuencias[palabra] += 1
+        else:
+            frecuencias[palabra] = 1
+    
+    return frecuencias
+
+cadena = "Ejemplo de cadena de texto. Voy a poner palabras que se repiten y palabras que no se repiten. Mediante la funcion voy a retornar las palabras como clave, y la frecuencia como valor."
+
+frecuencias = contar_palabras(cadena)
+
+print(frecuencias)
+
+# Ejercicio 4:
+
+def palabra_mas_repetida(diccionario):
+    palabra_max = ""
+    frecuencia_max = 0
+    for palabra, frecuencia in diccionario.items():
+        if frecuencia > frecuencia_max:
+            palabra_max = palabra
+            frecuencia_max = frecuencia
+    return (palabra_max, frecuencia_max)
+
+print(palabra_mas_repetida(frecuencias))
+
+# Ejercicio 5:
+
+# Solución iterativa: 
+def get_int():
+    while True:
+        try:
+            num = int(input("Ingrese un número entero: "))
+            return num
+        except ValueError:
+            print("El valor ingresado no es un número entero válido.")
+
+
+# Solución recursiva:
+def get_int():
+    try:
+        num = int(input("Ingrese un número entero: "))
+        return num
+    except ValueError:
+        print("El valor ingresado no es un número entero válido.")
+        return get_int()
+    
+get_int()
