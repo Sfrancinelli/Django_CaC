@@ -1,3 +1,5 @@
+# Ejercicio 6
+
 class Persona():
     def __init__(self, nombre="", edad=0, dni=""):
         self.nombre = nombre
@@ -31,9 +33,9 @@ class Persona():
         else:
             return False
 
-
+# Ejercicio 7
 class Cuenta:
-    def __init__(self, titular, cantidad=0.0):
+    def __init__(self, titular:str, cantidad=0.0):
         self.__titular = titular
         self.__cantidad = cantidad
 
@@ -47,7 +49,7 @@ class Cuenta:
         self.__titular = titular
 
     def mostrar(self):
-        return f"Titular: {self.__titular}.\nCantidad: {self.__cantidad}"
+        return f"Titular: {self.__titular}.\nCantidad: ${self.__cantidad}"
     
     def ingresar(self, cantidad):
         if cantidad > 0:
@@ -55,7 +57,49 @@ class Cuenta:
 
     def retirar(self, cantidad):
         self.__cantidad -= cantidad
-        
+
+# Ejercicio 8
+
+class CuentaJoven(Cuenta):
+    def __init__(self, titular:str, bonificacion:int, edad:int, cantidad=0.0):
+        super().__init__(titular, cantidad)
+        self.bonificacion = bonificacion 
+        self.edad = edad
+        self.__titular = titular
+        self.__cantidad = cantidad
+
+    def get_bonificacion(self):
+        return self.bonificacion
+    
+    def set_bonificacion(self, bonificacion):
+        self.bonificacion = bonificacion
+
+    def get_edad(self):
+        return self.edad
+    
+    def set_edad(self, edad):
+        self.edad = edad
+
+    def get_cantidad(self):
+        return self.__cantidad
+
+    def es_titular_valido(self):
+        return self.edad >= 18 and self.edad < 25
+    
+    def ingresar(self, cantidad):
+        if cantidad > 0:
+            self.__cantidad += cantidad
+
+    def retirar(self, cantidad):
+        if self.es_titular_valido():
+            self.__cantidad -= cantidad
+            print(f"Se retiraron ${cantidad}")
+        else:
+            print("Edad no válida. Debe ser mayor de 18 y menor de 25 años.")
+
+    def mostrar(self):
+        return f"Cuenta Joven.\nTitular: {self.__titular}.\nCantidad: ${self.__cantidad}.\nEdad: {self.edad}.\nBonificación: {self.bonificacion}"
+
 
 def main():
      
@@ -90,7 +134,31 @@ def main():
     cuenta.retirar(3_000)
     print(cuenta.mostrar())
 
+    print(cuenta.get_cantidad())
+
     print("-----------------------------------------------------")
+
+    cuenta_j = CuentaJoven("Sebastián", 10, 19)
+    print(cuenta_j.get_titular())
+    print(cuenta_j.get_cantidad())
+    print(cuenta_j.get_bonificacion())
+    print(cuenta_j.get_edad())
+    cuenta_j.set_titular("Sebastian Francinelli")
+    cuenta_j.set_bonificacion(50)
+    cuenta_j.set_edad(50)
+    cuenta_j.ingresar(500_000)
+
+    print(cuenta_j.mostrar())
+    cuenta_j.retirar(20_000)
+
+    cuenta_j.set_edad(22)
+
+    cuenta_j.retirar(30_000)
+
+    print(cuenta_j.mostrar())
+
+    print(cuenta_j.get_cantidad())
+
 
 
 if __name__ == "__main__":  
