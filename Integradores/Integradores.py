@@ -302,13 +302,13 @@ print(frecuencias)
 # Ejercicio 4:
 
 def palabra_mas_repetida(diccionario):
-    palabra_max = ""
-    frecuencia_max = 0
+    palabra_repetida = ""
+    frecuencia_maxima = 0
     for palabra, frecuencia in diccionario.items():
-        if frecuencia > frecuencia_max:
-            palabra_max = palabra
-            frecuencia_max = frecuencia
-    return (palabra_max, frecuencia_max)
+        if frecuencia > frecuencia_maxima:
+            palabra_repetida = palabra
+            frecuencia_maxima = frecuencia
+    return (palabra_repetida, frecuencia_maxima)
 
 print(palabra_mas_repetida(frecuencias))
 
