@@ -74,6 +74,13 @@ class CuentaJoven(Cuenta):
     def set_bonificacion(self, bonificacion):
         self.bonificacion = bonificacion
 
+    def get_titular(self):
+        return self.__titular
+    
+    def set_titular(self, titular):
+        self.__titular = titular
+        return self.__titular
+
     def get_edad(self):
         return self.edad
     
