@@ -51,3 +51,23 @@ nuevo_estudiante.registrarse()
 nuevo_docente = Docente("Carlos", "Gómez", "32456789", "Carlosgomez@gmail.com", 1122345)
 nuevo_docente.registrarse()
 print(nuevo_docente)
+
+class Empleado(ABC):
+    def __init__(self, nombre, apellido):
+        self.__nombre = nombre
+        self.__apellido = apellido
+
+    @property
+    def nombre_completo(self):
+        return f"{self.__nombre} {self.__apellido}"
+
+    @property
+    @abstractmethod
+    def salario(self):
+        pass
+
+
+class EmpleadoFullTime(Empleado):
+    def __init__(self, nombre, apellido, salario):
+        super().__init__(nombre, apellido)
+        self.__salario = salario
