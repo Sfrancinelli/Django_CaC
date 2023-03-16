@@ -57,7 +57,7 @@ class Cuenta:
         self.__titular = titular
 
     def mostrar(self):
-        return f"Titular: {self.__titular}.\nCantidad: ${self.__cantidad}"
+        print(f"Titular: {self.__titular}.\nCantidad: ${self.__cantidad}")
     
     def ingresar(self, cantidad):
         if cantidad > 0:
@@ -123,7 +123,7 @@ def main():
 
     cuenta.titular = "Sebastián Francinelli"
     print(cuenta.titular)
-    print(cuenta.mostrar())
+    cuenta.mostrar()
 
 if __name__ == "__main__":  
     main()
