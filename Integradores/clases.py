@@ -71,3 +71,39 @@ class EmpleadoFullTime(Empleado):
     def __init__(self, nombre, apellido, salario):
         super().__init__(nombre, apellido)
         self.__salario = salario
+
+    @property
+    def salario(self):
+        return self.__salario
+    
+class EmpleadoPorHora(Empleado):
+    def __init__(self, nombre, apellido, horas_trabajadas, valor_hora):
+        super().__init__(nombre, apellido)
+        self.__horas_trabajadas = horas_trabajadas
+        self.__valor_hora = valor_hora
+
+    @property
+    def salario(self):
+        return self.__horas_trabajadas * self.__valor_hora
+    
+class EmpleadoPasante(Empleado):
+    def __init__(self, nombre, apellido):
+        super().__init__(nombre, apellido)
+
+    @property
+    def salario(self):
+        return 0
+
+class Nomina:
+    def __init__(self):
+        self._lista_empleados = []
+
+    def agregar_empleado(self, empleado):
+        self._lista_empleados.append(empleado)
+
+    def print(self):
+        for empleado in self._lista_empleados:
+            if isinstance(empleado, Empleado):
+                print(f"{empleado.nombre_completo} \t ${empleado.salario}")
+            else:
+                print(f"En la nómina hay un no empleado: {empleado}")
