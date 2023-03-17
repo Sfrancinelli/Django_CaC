@@ -52,6 +52,8 @@ nuevo_docente = Docente("Carlos", "Gómez", "32456789", "Carlosgomez@gmail.com",
 nuevo_docente.registrarse()
 print(nuevo_docente)
 
+print(10*'-----')
+
 class Empleado(ABC):
     def __init__(self, nombre, apellido):
         self.__nombre = nombre
@@ -107,3 +109,17 @@ class Nomina:
                 print(f"{empleado.nombre_completo} \t ${empleado.salario}")
             else:
                 print(f"En la nómina hay un no empleado: {empleado}")
+
+nomina_empleados = Nomina()
+
+nomina_empleados.agregar_empleado(EmpleadoFullTime('Lucas', 'Pratto', 6000))
+nomina_empleados.agregar_empleado(EmpleadoFullTime('Luca', 'Janson', 6500))
+nomina_empleados.agregar_empleado(EmpleadoPorHora('Valentin', 'Gomez', 200, 50))
+nomina_empleados.agregar_empleado(EmpleadoPorHora('Walter', 'Bou', 150, 100))
+nomina_empleados.agregar_empleado(EmpleadoPorHora('Santiago', 'Caseres', 100, 150))
+# UN empleado no se puede instanciar porque es una clase abstracta
+# nomina_empleados.agregar_empleado(Empleado('Diego', 'Armando', 10))
+# Si tiene la implementación de salario si se puede instanciar, sino no.
+# nomina_empleados.agregar_empleado(EmpleadoPasante('Diego', 'Godin'))
+
+nomina_empleados.print()
