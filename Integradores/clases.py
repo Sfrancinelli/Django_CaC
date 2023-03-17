@@ -136,3 +136,32 @@ nomina_empleados.agregar_empleado(EmpleadoPorHora('Santiago', 'Caseres', 100, 15
 # nomina_empleados.agregar_empleado(EmpleadoPasante('Diego', 'Godin'))
 
 nomina_empleados.print()
+
+# Herencia múltiple
+
+class Estudiante():
+    """Clase estudiantes"""
+    def __init__(self, legajo):
+        self.__legajo = legajo
+
+    @property
+    def legajo(self):
+        return self.__legajo
+
+    def __str__(self):
+        return f"Legajo: {self.__legajo}"
+class EstudiantePasante(Empleado, Estudiante):
+    def __init__(self, nombre, apellido, legajo):
+        Empleado.__init__(self, nombre, apellido)
+        Estudiante.__init__(self, legajo)
+
+    # Tengo que implementar la propiedad salario porque hereda de empleado
+    @property
+    def salario(self):
+        return 0
+    
+    def __str__(self) -> str:
+        return f"{self.nombre_completo}. Legajo: {self.legajo}"
+    
+mis_estudiantes = []
+mis_estudiantes.append()
