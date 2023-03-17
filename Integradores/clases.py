@@ -78,6 +78,11 @@ class EmpleadoFullTime(Empleado):
     def salario(self):
         return self.__salario
     
+    # La función repr muestra el objeto de acuerdo al return asignado
+    # en vez de mostrarlo como siempre (<object at 0x...>)
+    def __repr__(self) -> str:
+        return self.nombre_completo
+    
 class EmpleadoPorHora(Empleado):
     def __init__(self, nombre, apellido, horas_trabajadas, valor_hora):
         super().__init__(nombre, apellido)
@@ -88,6 +93,11 @@ class EmpleadoPorHora(Empleado):
     def salario(self):
         return self.__horas_trabajadas * self.__valor_hora
     
+    # La función repr muestra el objeto de acuerdo al return asignado
+    # en vez de mostrarlo como siempre (<object at 0x...>)
+    def __repr__(self) -> str:
+        return self.nombre_completo
+    
 class EmpleadoPasante(Empleado):
     def __init__(self, nombre, apellido):
         super().__init__(nombre, apellido)
@@ -95,6 +105,9 @@ class EmpleadoPasante(Empleado):
     @property
     def salario(self):
         return 0
+
+    def __repr__(self) -> str:
+        return self.nombre_completo
 
 class Nomina:
     def __init__(self):
