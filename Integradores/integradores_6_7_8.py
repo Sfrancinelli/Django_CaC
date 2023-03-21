@@ -71,7 +71,7 @@ class CuentaJoven(Cuenta):
     def __init__(self, titular:str, edad:int, cantidad=0.0, bonificacion=0):
         super().__init__(titular, cantidad)
         self.__bonificacion = bonificacion 
-        self.edad = edad
+        self.__edad = edad
 
     @property
     def bonificacion(self):
@@ -83,14 +83,14 @@ class CuentaJoven(Cuenta):
 
     @property
     def edad(self):
-        return self.edad
+        return self.__edad
     
     @edad.setter
     def edad(self, edad):
-        self.edad = edad
+        self.__edad = edad
 
     def es_titular_valido(self):
-        return self.edad >= 18 and self.edad < 25
+        return self.__edad >= 18 and self.__edad < 25
     
     def ingresar(self, cantidad):
         super().ingresar(cantidad)
@@ -119,7 +119,7 @@ def main():
     cuenta.retirar(30_000)
     print(cuenta.cantidad)
 
-    cuenta.set_edad(55)
+    cuenta.edad = 55
     cuenta.retirar(30_000)
     print(cuenta.cantidad)
 
