@@ -81,10 +81,12 @@ class CuentaJoven(Cuenta):
     def bonificacion(self, bonificacion):
         self.__bonificacion = bonificacion
 
+    @property
     def edad(self):
         return self.edad
     
-    def set_edad(self, edad):
+    @edad.setter
+    def edad(self, edad):
         self.edad = edad
 
     def es_titular_valido(self):
